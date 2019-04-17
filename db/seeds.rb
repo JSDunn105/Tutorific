@@ -18,16 +18,16 @@ include Faker
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Subjects
-physics = Subject.create(name: "Physics")
-calculus = Subject.create(name: "Calculus")
-chemistry = Subject.create(name: "Chemistry")
-political_science = Subject.create(name: "Political Science")
-artificial_intelligence = Subject.create(name: "Artificial Intelligence")
-biochemistry = Subject.create(name: "Biochemistry")
-history = Subject.create(name: "History")
+ph = Subject.create(name: "Physics")
+cal = Subject.create(name: "Calculus")
+chem = Subject.create(name: "Chemistry")
+poli = Subject.create(name: "Political Science")
+ai = Subject.create(name: "Artificial Intelligence")
+biochem = Subject.create(name: "Biochemistry")
+h = Subject.create(name: "History")
 art = Subject.create(name: "Art")
-discrete_math = Subject.create(name: "Discrete Math")
-biology = Subject.create(name: "Biology")
+bmath = Subject.create(name: "Basic Math")
+bio = Subject.create(name: "Biology")
 
 10.times do
     User.create(
@@ -49,3 +49,28 @@ scott = User.create(first_name: "Scott", last_name: "Thompson", profile: "My fav
 trump = User.create(first_name: "Donald", last_name: "Trump", profile: "I can't teach political science, because I'm into real estate. Ask me again, and you're fired!")
 kovacs = User.create(first_name: "Takeshi", last_name: "Kovacs", profile: "I'm from the feature, but I can teach biochemistry")
 ryan = User.create(first_name: "Ryan", last_name: "Reynolds", profile: "I'm in the new Pokemon movie, but I can teach you something about art")
+ 
+
+5.times do
+     User.create(
+         email: Faker::Internet.email,
+         first_name: Faker::Name.first_name,
+         last_name: Faker::Name.last_name,
+         encrypted_password: ''
+         role: 'Student'
+         profile: Faker::Lorem.sentences)
+     end
+
+     5.times do
+     User.create(
+         email: Faker::Internet.email,
+         first_name: Faker::Name.first_name,
+         last_name: Faker::Name.last_name,
+         encrypted_password: ''
+         role: 'Tutor'
+         profile: Faker::Lorem.sentences)
+     end
+
+     TutorSubject.create(
+         tutor_id: User.id.first
+     )
