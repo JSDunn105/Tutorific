@@ -18,6 +18,9 @@ include Faker
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Subjects
+
+sub = []
+
 ph = Subject.create(name: "Physics")
 cal = Subject.create(name: "Calculus")
 chem = Subject.create(name: "Chemistry")
@@ -49,8 +52,8 @@ bio = Subject.create(name: "Biology")
          profile: Faker::Lorem.sentences)
      end
 
-     TutorSubject.create(tutor_id: User.id.first, subject_id: ph.id)
-     TutorSubject.create(tutor_id: User.id.first, subject_id: ph.id)
+     TutorSubject.create(tutor_id: User.id.first, subject_id: chem.id)
+     TutorSubject.create(tutor_id: User.id.first, subject_id: poli.id)
      TutorSubject.create(tutor_id: User.id.first, subject_id: ph.id)
      TutorSubject.create(tutor_id: User.id.first, subject_id: ph.id)
      TutorSubject.create(tutor_id: User.id.first, subject_id: ph.id)
