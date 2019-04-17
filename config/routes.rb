@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :tutor_subjects
   resources :users
   resources :student_tutors
-  resources :review
+  resources :reviews
 
   get '/users/subjects/:id', to: 'users#subjects'
   post '/users/subjects/:id', to: 'users#subjectupdate'
