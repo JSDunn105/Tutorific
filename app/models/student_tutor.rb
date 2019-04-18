@@ -1,4 +1,6 @@
 class StudentTutor < ApplicationRecord
 
-    has_one :review
+    belongs_to :tutor_subject
+    has_many :reviews
+    has_many :students, class_name = "User"
 end

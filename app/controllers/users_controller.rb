@@ -7,56 +7,47 @@ class UsersController < ApplicationController
 
 
   def create
-
-
     @user = User.new(user_params)
     @user.save
-
     redirect_to user_index_path
-
   end
 
   def new
     @user = User.all
-
   end
 
   def show
     @user = User.find(params[:id])
   end
 
-   def subjects
-  @user = User.find(params[:id])
+  def subjects
+    @user = User.find(params[:id])
+    @existing = []
+    @notincluded = []
+    @subjecttochoose = []
+    @final = []
+    @subjectnames = []
+      TutorSubject.all.each do |subject|
 
-   @existing = []
-   @notincluded = []
-   @subjecttochoose = []
-   @final = []
-   @subjectnames = []
-   TutorSubject.all.each do |subject|
-
-    if subject.tutor_id == @user.id
-      @existing << subject.subject_id
-      
-    end
-     end
-      
+        if subject.tutor_id == @user.id
+        @existing << subject.subject_id
+        end
+      end
      Subject.all.each do |subject|
-     
+
      @subjecttochoose << subject.id
-     
-     end 
+
+     end
      @final = @subjecttochoose - @existing
-     
+
      @final.each do |subject|
        @subjectnames << Subject.all.find(subject)
-     end  
-     
+     end
+
    @test  = "this is test"
    #redirect_to "users/subjects/#{@user.id}"
    render :subject
   end
-    
 
 
     def subjectupdate

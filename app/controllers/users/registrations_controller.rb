@@ -8,13 +8,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
    def new
-     byebug
+
      @user = User.all
   end
 
   # POST /resource
   def create
-    byebug
+
     @user = User.new(user_params)
     @user.save
 
@@ -67,7 +67,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-  
+
 
 
 

@@ -29,10 +29,10 @@ class SubjectsController < ApplicationController
     respond_to do |format|
       if @subject.save
         format.html { redirect_to @subject, notice: 'Subject was successfully created.' }
-        format.json { render :show, status: :created, location: @subject }
+        # format.json { render :show, status: :created, location: @subject }
       else
         format.html { render :new }
-        format.json { render json: @subject.errors, status: :unprocessable_entity }
+        # format.json { render json: @subject.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,10 +43,10 @@ class SubjectsController < ApplicationController
     respond_to do |format|
       if @subject.update(subject_params)
         format.html { redirect_to @subject, notice: 'Subject was successfully updated.' }
-        format.json { render :show, status: :ok, location: @subject }
+        # format.json { render :show, status: :ok, location: @subject }
       else
         format.html { render :edit }
-        format.json { render json: @subject.errors, status: :unprocessable_entity }
+        # format.json { render json: @subject.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -56,7 +56,7 @@ class SubjectsController < ApplicationController
   def destroy
     @subject.destroy
     respond_to do |format|
-      format.html { redirect_to subjects_url, notice: 'Subject was successfully destroyed.' }
+      format.html { redirect_to subjects_url, notice: 'Subject was successfully deleted.' }
       format.json { head :no_content }
     end
   end
